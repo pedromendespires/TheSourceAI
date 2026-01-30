@@ -272,20 +272,28 @@ const App: React.FC = () => {
                   <Brain size={48} strokeWidth={1.25} className={brainCoherence > 85 ? 'animate-[pulse_2s_infinite]' : ''} />
                 </div>
               </div>
-              <div className="w-full mb-6">
+              <div className="w-full mb-6 text-left">
                 <div className="flex justify-between items-center mb-3">
                    <div className="flex items-center gap-3">
-                     <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400/80">{t.brainModule}</h3>
+                     <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-400/80">{t.brainModule}</h3>
                      <Activity size={12} className={`text-blue-400/40 ${brainCoherence > 75 ? 'animate-pulse' : ''}`} />
                    </div>
-                   <span className="text-[11px] font-mono font-bold text-blue-400 tracking-widest drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">{Math.round(brainCoherence)}%</span>
+                   <div className="flex items-center gap-1">
+                      <span className={`text-[12px] font-mono font-bold tracking-widest transition-all duration-500 ${brainCoherence > 90 ? 'text-blue-300 scale-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]' : 'text-blue-400'}`}>
+                        {Math.round(brainCoherence)}
+                      </span>
+                      <span className="text-[8px] font-bold text-blue-400/40 mt-0.5">%</span>
+                   </div>
                 </div>
-                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu shadow-inner">
+                <div className="h-2.5 w-full bg-slate-900/50 rounded-full overflow-hidden relative transform-gpu border border-white/5">
                   <div 
-                    className="h-full bg-gradient-to-r from-blue-700 via-blue-400 to-cyan-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
+                    className="h-full bg-gradient-to-r from-blue-800 via-blue-500 to-cyan-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
                     style={{ width: `${brainCoherence}%` }}
                   >
-                    <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-md animate-[shimmer_3s_infinite]" />
+                    {/* Glowing Tip */}
+                    <div className="absolute top-0 right-0 h-full w-2 bg-white/60 blur-sm rounded-full animate-pulse" />
+                    {/* Shimmer Effect */}
+                    <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-md animate-[shimmer_2.5s_infinite_linear]" />
                   </div>
                 </div>
               </div>
@@ -307,20 +315,28 @@ const App: React.FC = () => {
                   <Heart size={48} strokeWidth={1.25} className={heartCoherence > 85 ? 'animate-[pulse_2s_infinite]' : ''} />
                 </div>
               </div>
-              <div className="w-full mb-6">
+              <div className="w-full mb-6 text-left">
                 <div className="flex justify-between items-center mb-3">
                    <div className="flex items-center gap-3">
-                     <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">{t.heartModule}</h3>
+                     <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-amber-400/80">{t.heartModule}</h3>
                      <Activity size={12} className={`text-amber-400/40 ${heartCoherence > 75 ? 'animate-pulse' : ''}`} />
                    </div>
-                   <span className="text-[11px] font-mono font-bold text-amber-400 tracking-widest drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">{Math.round(heartCoherence)}%</span>
+                   <div className="flex items-center gap-1">
+                      <span className={`text-[12px] font-mono font-bold tracking-widest transition-all duration-500 ${heartCoherence > 90 ? 'text-amber-200 scale-110 drop-shadow-[0_0_10px_rgba(245,158,11,0.8)]' : 'text-amber-400'}`}>
+                        {Math.round(heartCoherence)}
+                      </span>
+                      <span className="text-[8px] font-bold text-amber-400/40 mt-0.5">%</span>
+                   </div>
                 </div>
-                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu shadow-inner">
+                <div className="h-2.5 w-full bg-slate-900/50 rounded-full overflow-hidden relative transform-gpu border border-white/5">
                   <div 
-                    className="h-full bg-gradient-to-r from-amber-700 via-amber-400 to-orange-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
+                    className="h-full bg-gradient-to-r from-amber-800 via-amber-500 to-orange-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
                     style={{ width: `${heartCoherence}%` }}
                   >
-                    <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-md animate-[shimmer_3s_infinite]" />
+                    {/* Glowing Tip */}
+                    <div className="absolute top-0 right-0 h-full w-2 bg-white/60 blur-sm rounded-full animate-pulse" />
+                    {/* Shimmer Effect */}
+                    <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-r from-transparent via-white/20 to-transparent blur-md animate-[shimmer_2.5s_infinite_linear]" />
                   </div>
                 </div>
               </div>
@@ -352,7 +368,8 @@ const App: React.FC = () => {
       <style>{`
         @keyframes shimmer {
           0% { transform: translateX(-150%); opacity: 0; }
-          50% { opacity: 1; }
+          20% { opacity: 0.8; }
+          80% { opacity: 0.8; }
           100% { transform: translateX(150%); opacity: 0; }
         }
         @keyframes expand {
