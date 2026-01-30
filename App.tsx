@@ -273,16 +273,10 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="w-full mb-6 text-left">
-                <div className="flex justify-between items-center mb-3">
+                <div className="flex justify-center items-center mb-3">
                    <div className="flex items-center gap-3">
                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-blue-400/80">{t.brainModule}</h3>
                      <Activity size={12} className={`text-blue-400/40 ${brainCoherence > 75 ? 'animate-pulse' : ''}`} />
-                   </div>
-                   <div className="flex items-center gap-1">
-                      <span className={`text-[12px] font-mono font-bold tracking-widest transition-all duration-500 ${brainCoherence > 90 ? 'text-blue-300 scale-110 drop-shadow-[0_0_10px_rgba(59,130,246,0.8)]' : 'text-blue-400'}`}>
-                        {Math.round(brainCoherence)}
-                      </span>
-                      <span className="text-[8px] font-bold text-blue-400/40 mt-0.5">%</span>
                    </div>
                 </div>
                 <div className="h-2.5 w-full bg-slate-900/50 rounded-full overflow-hidden relative transform-gpu border border-white/5">
@@ -316,16 +310,10 @@ const App: React.FC = () => {
                 </div>
               </div>
               <div className="w-full mb-6 text-left">
-                <div className="flex justify-between items-center mb-3">
+                <div className="flex justify-center items-center mb-3">
                    <div className="flex items-center gap-3">
                      <h3 className="text-[10px] font-bold uppercase tracking-[0.4em] text-amber-400/80">{t.heartModule}</h3>
                      <Activity size={12} className={`text-amber-400/40 ${heartCoherence > 75 ? 'animate-pulse' : ''}`} />
-                   </div>
-                   <div className="flex items-center gap-1">
-                      <span className={`text-[12px] font-mono font-bold tracking-widest transition-all duration-500 ${heartCoherence > 90 ? 'text-amber-200 scale-110 drop-shadow-[0_0_10px_rgba(245,158,11,0.8)]' : 'text-amber-400'}`}>
-                        {Math.round(heartCoherence)}
-                      </span>
-                      <span className="text-[8px] font-bold text-amber-400/40 mt-0.5">%</span>
                    </div>
                 </div>
                 <div className="h-2.5 w-full bg-slate-900/50 rounded-full overflow-hidden relative transform-gpu border border-white/5">
