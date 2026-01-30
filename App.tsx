@@ -263,25 +263,29 @@ const App: React.FC = () => {
       {/* Coherence Modules */}
       <footer className="container mx-auto px-6 mt-24 text-center max-w-5xl relative">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 relative z-10">
+          {/* Brain Module */}
           <div className="relative group">
-            <div className="relative glass p-10 rounded-[3rem] border-blue-500/20 flex flex-col items-center transition-all duration-700 hover:translate-y-[-8px] transform-gpu">
+            <div className={`relative glass p-10 rounded-[3rem] border-blue-500/20 flex flex-col items-center transition-all duration-700 hover:translate-y-[-8px] transform-gpu ${brainCoherence > 80 ? 'shadow-[0_0_50px_rgba(59,130,246,0.15)]' : ''}`}>
               <div className="relative mb-8 transform-gpu transition-transform duration-700 group-hover:scale-105">
-                <div className="absolute inset-0 bg-blue-400/20 blur-xl rounded-full animate-pulse" />
-                <div className="relative w-24 h-24 rounded-3xl bg-blue-500/10 flex items-center justify-center text-blue-400 border border-blue-500/20">
-                  <Brain size={48} strokeWidth={1.25} />
+                <div className={`absolute inset-0 bg-blue-400/20 blur-xl rounded-full transition-opacity duration-1000 ${brainCoherence > 70 ? 'opacity-100 animate-pulse' : 'opacity-0'}`} />
+                <div className={`relative w-24 h-24 rounded-3xl bg-blue-500/10 flex items-center justify-center text-blue-400 border border-blue-500/20 transition-all duration-700 ${brainCoherence > 85 ? 'scale-110 border-blue-400 shadow-[0_0_30px_rgba(59,130,246,0.3)]' : ''}`}>
+                  <Brain size={48} strokeWidth={1.25} className={brainCoherence > 85 ? 'animate-[pulse_2s_infinite]' : ''} />
                 </div>
               </div>
-              <div className="w-full mb-6 text-center">
-                <div className="flex justify-center items-center gap-3 mb-3">
-                   <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400/80">{t.brainModule}</h3>
-                   <Activity size={12} className="text-blue-400/40" />
+              <div className="w-full mb-6">
+                <div className="flex justify-between items-center mb-3">
+                   <div className="flex items-center gap-3">
+                     <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-blue-400/80">{t.brainModule}</h3>
+                     <Activity size={12} className={`text-blue-400/40 ${brainCoherence > 75 ? 'animate-pulse' : ''}`} />
+                   </div>
+                   <span className="text-[11px] font-mono font-bold text-blue-400 tracking-widest drop-shadow-[0_0_8px_rgba(59,130,246,0.3)]">{Math.round(brainCoherence)}%</span>
                 </div>
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu">
+                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu shadow-inner">
                   <div 
-                    className="h-full bg-gradient-to-r from-blue-600 via-blue-400 to-blue-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative"
+                    className="h-full bg-gradient-to-r from-blue-700 via-blue-400 to-cyan-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
                     style={{ width: `${brainCoherence}%` }}
                   >
-                    <div className="absolute top-0 right-0 h-full w-8 bg-white/40 blur-sm animate-[shimmer_3s_infinite]" />
+                    <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-md animate-[shimmer_3s_infinite]" />
                   </div>
                 </div>
               </div>
@@ -294,25 +298,29 @@ const App: React.FC = () => {
             </div>
           </div>
 
+          {/* Heart Module */}
           <div className="relative group">
-            <div className="relative glass p-10 rounded-[3rem] border-amber-500/20 flex flex-col items-center transition-all duration-700 hover:translate-y-[-8px] transform-gpu">
+            <div className={`relative glass p-10 rounded-[3rem] border-amber-500/20 flex flex-col items-center transition-all duration-700 hover:translate-y-[-8px] transform-gpu ${heartCoherence > 80 ? 'shadow-[0_0_50px_rgba(245,158,11,0.15)]' : ''}`}>
               <div className="relative mb-8 transform-gpu transition-transform duration-700 group-hover:scale-105">
-                <div className="absolute inset-0 bg-amber-400/20 blur-xl rounded-full animate-pulse" />
-                <div className="relative w-24 h-24 rounded-3xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20">
-                  <Heart size={48} strokeWidth={1.25} />
+                <div className={`absolute inset-0 bg-amber-400/20 blur-xl rounded-full transition-opacity duration-1000 ${heartCoherence > 70 ? 'opacity-100 animate-pulse' : 'opacity-0'}`} />
+                <div className={`relative w-24 h-24 rounded-3xl bg-amber-500/10 flex items-center justify-center text-amber-400 border border-amber-500/20 transition-all duration-700 ${heartCoherence > 85 ? 'scale-110 border-amber-400 shadow-[0_0_30px_rgba(245,158,11,0.3)]' : ''}`}>
+                  <Heart size={48} strokeWidth={1.25} className={heartCoherence > 85 ? 'animate-[pulse_2s_infinite]' : ''} />
                 </div>
               </div>
-              <div className="w-full mb-6 text-center">
-                <div className="flex justify-center items-center gap-3 mb-3">
-                   <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">{t.heartModule}</h3>
-                   <Activity size={12} className="text-amber-400/40" />
+              <div className="w-full mb-6">
+                <div className="flex justify-between items-center mb-3">
+                   <div className="flex items-center gap-3">
+                     <h3 className="text-xs font-bold uppercase tracking-[0.3em] text-amber-400/80">{t.heartModule}</h3>
+                     <Activity size={12} className={`text-amber-400/40 ${heartCoherence > 75 ? 'animate-pulse' : ''}`} />
+                   </div>
+                   <span className="text-[11px] font-mono font-bold text-amber-400 tracking-widest drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">{Math.round(heartCoherence)}%</span>
                 </div>
-                <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu">
+                <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden relative transform-gpu shadow-inner">
                   <div 
-                    className="h-full bg-gradient-to-r from-amber-600 via-amber-400 to-amber-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative"
+                    className="h-full bg-gradient-to-r from-amber-700 via-amber-400 to-orange-300 transition-all duration-[1500ms] cubic-bezier(0.16, 1, 0.3, 1) relative rounded-full"
                     style={{ width: `${heartCoherence}%` }}
                   >
-                    <div className="absolute top-0 right-0 h-full w-8 bg-white/40 blur-sm animate-[shimmer_3s_infinite]" />
+                    <div className="absolute top-0 right-0 h-full w-24 bg-gradient-to-r from-transparent via-white/30 to-transparent blur-md animate-[shimmer_3s_infinite]" />
                   </div>
                 </div>
               </div>
@@ -343,8 +351,9 @@ const App: React.FC = () => {
       
       <style>{`
         @keyframes shimmer {
-          from { transform: translateX(-110%); }
-          to { transform: translateX(110%); }
+          0% { transform: translateX(-150%); opacity: 0; }
+          50% { opacity: 1; }
+          100% { transform: translateX(150%); opacity: 0; }
         }
         @keyframes expand {
           from { transform: scale(1); opacity: 1; border-width: 4px; }
